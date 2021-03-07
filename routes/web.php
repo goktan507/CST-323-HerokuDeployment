@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+Route::get('auth/logout', 'Auth\AuthController@logout');
 Auth::routes();
 
 
