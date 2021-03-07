@@ -13,10 +13,10 @@
 
     <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('public/css/app.css')}}">
 
 
-    <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
+    <link href="{{asset('public/css/blog-home.css')}}" rel="stylesheet">
 
 </head>
 
