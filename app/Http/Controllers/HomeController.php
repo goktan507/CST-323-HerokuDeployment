@@ -31,9 +31,10 @@ class HomeController extends Controller
     }
 
     public function logout(Request $request){
-        $request->session()->flush();
+        //$request->session()->flush();
 
-        return redirect('login');
+        //return redirect('login');
+        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
     }
 
 }
