@@ -9,10 +9,8 @@ use App\Services\Utility\MyLogger1;
 class PostController extends Controller
 {
     private $logger;
-    public function __construct(){
-        $this->logger = MyLogger1::getLogger();
-    }
     public function show(Post $post){
+        $this->logger = MyLogger1::getLogger();
         $this->logger->info("Entering PostController@show");
         $this->logger->info("Exiting PostController@show, redirecting to blog-post page");
         return view('blog-post', ['post'=> $post]);
@@ -20,6 +18,7 @@ class PostController extends Controller
     }
 
     public function create(){
+        $this->logger = MyLogger1::getLogger();
         $this->logger->info("Entering PostController@create");
         $this->logger->info("Exiting PostController@create, redirecting to profile.posts.create page");
         return view('profile.posts.create');
@@ -27,6 +26,7 @@ class PostController extends Controller
     }
 
     public function store(){
+        $this->logger = MyLogger1::getLogger();
         $this->logger->info("Entering PostController@store");
        $inputs = request()->validate([
 

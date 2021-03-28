@@ -16,7 +16,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->logger = MyLogger1::getLogger();
         //$this->middleware('auth');
     }
 
@@ -27,6 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $this->logger = MyLogger1::getLogger();
         $this->logger->info("Entering HomeController@index");
         $posts = Post::all();
 
@@ -35,6 +35,7 @@ class HomeController extends Controller
     }
 
     public function logout(Request $request){
+        $this->logger = MyLogger1::getLogger();
         $this->logger->info("Entering HomeController@logout");
         $request->session()->flush();
         $this->logger->info("Exiting HomeController@logout redirecting login page");
