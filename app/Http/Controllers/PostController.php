@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 use App\Models\Post;
-use app\Services\Utility\MyLogger1;
+use App\Services\Utility\MyLogger1;
 
 
 class PostController extends Controller

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
-use app\Services\Utility\MyLogger1;
+use App\Services\Utility\MyLogger1;
 
 class HomeController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Services\Utility;
+namespace App\Services\Utility;
 
 interface ILogger
 {
