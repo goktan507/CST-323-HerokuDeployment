@@ -30,7 +30,7 @@ class HomeController extends Controller
         $this->logger->info("Entering HomeController@index");
         $posts = Post::all();
 
-        $this->logger->info("Exiting HomeController@index, redirecting home page");
+        $this->logger->info("Exiting HomeController@index, redirecting home page", $posts);
         return view('home',['posts'=> $posts]);
     }
 
