@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use app\Services\Utility\MyLogger1;
 
 class HomeController extends Controller
 {
+    private $logger;
     /**
      * Create a new controller instance.
      *
@@ -14,6 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        $this->logger = MyLogger1::getLogger();
         //$this->middleware('auth');
     }
 
@@ -24,14 +28,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $this->logger->info("Entering HomeController@index");
         $posts = Post::all();
 
-
+        $this->logger->info("Exiting HomeController@index, redirecting home page");
         return view('home',['posts'=> $posts]);
     }
 
     public function logout(Request $request){
+        $this->logger->info("Entering HomeController@logout");
         $request->session()->flush();
+        $this->logger->info("Exiting HomeController@logout redirecting login page");
         return redirect('login');
     }
 
