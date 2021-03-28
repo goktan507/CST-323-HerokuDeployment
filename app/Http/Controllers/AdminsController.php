@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers;
 
-use Illuminate\Http\Request;
 use app\Services\Utility\MyLogger1;
 
 class AdminsController extends Controller

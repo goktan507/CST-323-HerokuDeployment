@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Support\Facades\Log;
 use app\Services\Utility\MyLogger1;
 
 
