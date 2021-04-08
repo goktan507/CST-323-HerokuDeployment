@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Services\Utility\MyLogger1;
+use Carbon\Exceptions\Exception;
 
 class HomeController extends Controller
 {
@@ -28,8 +29,11 @@ class HomeController extends Controller
     {
         $this->logger = MyLogger1::getLogger();
         $this->logger->info("Entering HomeController@index");
-        $posts = Post::all();
-
+        try{
+            $posts = Post::all();
+        } catch (Exception $e){
+            $this->logger->error($e);
+        }
         $this->logger->info("Exiting HomeController@index, redirecting home page");
         return view('home',['posts'=> $posts]);
     }
@@ -37,7 +41,11 @@ class HomeController extends Controller
     public function logout(Request $request){
         $this->logger = MyLogger1::getLogger();
         $this->logger->info("Entering HomeController@logout");
-        $request->session()->flush();
+        try{
+            $request->session()->flush();
+        } catch (Exception $e){
+            $this->logger->error($e);
+        }
         $this->logger->info("Exiting HomeController@logout redirecting login page");
         return redirect('login');
     }
