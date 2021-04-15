@@ -47,6 +47,21 @@ class PostController extends Controller
         return back();
 
     }
+    
+    public function comment(Post $post){
+        $this->logger = MyLogger1::getLogger();
+        $this->logger->info("Entering PostController@comment");
+        try{
+            $inputs = [
+              'message' => request()->get('message')
+            ];
+            $post->comment()->create($inputs);
+        } catch (Exception $e){
+            $this->logger->error($e);
+        }
+        $this->logger->info("Exiting PostController@comment, redirecting back to the same page");
+        return back();
+    }
 
 
 

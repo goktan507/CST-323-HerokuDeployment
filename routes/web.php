@@ -1,12 +1,17 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+
 Auth::routes();
 
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/public', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/post/{post}', [App\Http\Controllers\PostController::class, 'show'])->name('post');
+
+Route::get('/post/{post}/comment', [App\Http\Controllers\PostController::class, 'comment'])->name('post.comment');
 
 
     Route::middleware('auth')->group(function(){
