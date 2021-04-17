@@ -10,17 +10,28 @@ use Carbon\Exceptions\Exception;
 
 class SecurityDAO
 {   
+    // logger variable stored outside of the function to make it reuseable
     private $logger;
+    
+    /*
+     *  Initializes MyLogger service on SecurityDAO's creation.
+     */
     public function __construct(){
         $this->logger = MyLogger1::getLogger();
     }
 
+    /*
+     * API Purposes created functions that pulls user data from database
+     */
     public function getUsersDAO(){
         $this->logger->info("Entering SecurityDAO@getUserDAO");
         $this->logger->info("Exiting SecurityDAO@getUsersDAO, passing values to Security Service");
         return User::all();
     }
 
+    /*
+     * API Purposes created functions that updates user data on database
+     */
     public function updateUserDAO($user){
         $this->logger->info("Entering SecurityDAO@updateUserDAO");
         try {
@@ -34,6 +45,9 @@ class SecurityDAO
 
     }
 
+    /*
+     * API Purposes created functions that deletes user data from database
+     */
     public function deleteUserDAO($id){
         $this->logger->info("Entering SecurityDAO@deleteUserDAO");
         try {
@@ -45,12 +59,18 @@ class SecurityDAO
         return $user->forceDelete();
     }
 
+    /*
+     * API Purposes created functions that pulls specified user data by its ID from database
+     */
     public function getUserByID($id){
         $this->logger->info("Entering SecurityDAO@getUserByID");
         $this->logger->info("Exiting SecurityDAO@getUserByID, passing values to Security Service");
         return User::all()->findOrFail($id);
     }
 
+    /*
+     * API Purposes created functions that pulls posts data from database
+     */
     public function getPostsDAO(){
         $this->logger->info("Entering SecurityDAO@getPostsDAO");
         $this->logger->info("Exiting SecurityDAO@getPostsDAO, passing values to Security Service");
@@ -58,6 +78,9 @@ class SecurityDAO
 
     }
 
+    /*
+     * API Purposes created functions that updates post's data on database
+     */
     public function updatePostDAO($post){
         $this->logger->info("Entering SecurityDAO@updatePostDAO");
         
@@ -72,6 +95,9 @@ class SecurityDAO
 
     }
 
+    /*
+     * API Purposes created functions that delete Post's data from database
+     */
     public function deletePostDAO($data){
         $this->logger->info("Entering SecurityDAO@deletePostDAO");
         
@@ -84,12 +110,18 @@ class SecurityDAO
         return $post->Delete();
     }
 
+    /*
+     * API Purposes created functions that pulls specified post data by its title from database
+     */
     public function searchForPost($title){
         $this->logger->info("Entering SecurityDAO@searchForPost");
         $this->logger->info("Exiting SecurityDAO@searchForPost, passing values to Security Service");
         return Post::where('title', 'like', '%'.$title.'%')->get();
     }
 
+    /*
+     * API Purposes created functions that pulls specified user data by its name from database
+     */
     public function searchForUser($name){
         $this->logger->info("Entering SecurityDAO@searchForUser");
         $this->logger->info("Exiting SecurityDAO@searchForUser, passing values to Security Service");
