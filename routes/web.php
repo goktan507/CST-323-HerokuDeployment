@@ -13,7 +13,7 @@ Route::get('/post/{post}', [App\Http\Controllers\PostController::class, 'show'])
     // Middleware page validation 
     Route::middleware('auth')->group(function(){
 
-        Route::get('/profile2', [App\Http\Controllers\AdminsController::class, 'index'])->name('profile.index');
+        Route::get('/profile', [App\Http\Controllers\AdminsController::class, 'index'])->name('profile.index');
 
         Route::get('/profile/posts/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.create');
 
